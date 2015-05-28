@@ -6,14 +6,16 @@ import java.util.Scanner;
  */
 public class homeworkOne {
 
+	private static Scanner in = new Scanner(System.in);
 	/**
 	 * @param args; no arguments
 	 * 
 	 */
 	public static void main(String[] args) {
 		
-		//partOne();
-		
+		partOne();
+		long a = System.currentTimeMillis();
+		while(System.currentTimeMillis() < a + 2000);
 		partTwo();
 		
 	}
@@ -21,12 +23,12 @@ public class homeworkOne {
 	private static void partOne() {
 		System.out.println("Part One, Homework One");
 		System.out.println("-------------------------");
-		// Create scanner 
-		Scanner in = new Scanner(System.in);
+		System.out.println("Give me two names, delimited with a semicolon");
 		
 		// store input as names, splitting along semicolons;
-		String[] names = in.nextLine().split(";");
+		String[] names = in.nextLine().split("; ?");
 		
+		System.out.println("Give me their respective heights, delimited with a space");
 		// store height inputs in an arraylist for easier accessing
 		ArrayList<Integer> heights = new ArrayList<Integer>();
 		heights.add(new Integer(in.nextInt()));
@@ -58,7 +60,6 @@ public class homeworkOne {
 		int difference = Math.abs(heights.get(0)-heights.get(1));
 		System.out.println("The height difference between them is " + difference + " inches (" + 
 				difference*2.54 + " cm).");
-		in.close();
 	}
 	
 	private static void partTwo() {
@@ -66,7 +67,6 @@ public class homeworkOne {
 		System.out.println("----------------------");
 		
 		final double APR = 7.49;
-		Scanner in = new Scanner(System.in);
 		
 		System.out.println("Enter this month's payment (dollars.cents):");
 		double payment = in.nextDouble();
@@ -77,7 +77,7 @@ public class homeworkOne {
 		System.out.printf("Payment:\t\t\t$" + payment + "\n");
 		System.out.printf("Interest Paid:\t\t\t$%.2f\n",(owed * APR/12.0/100.0));
 		System.out.printf("Amount applied to principal:\t$%.2f\n",(payment - (owed*APR/12.0/100.0)));
-		System.out.printf("New Balance:\t$%.2f\n", (owed - (payment - (owed*APR/12.0/100.0))));
+		System.out.printf("New Balance:\t\t\t$%.2f\n", (owed - (payment - (owed*APR/12.0/100.0))));
 		
 		in.close();
 		}
